@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Angela Oforiwaa Ansah — Digital Marketing Specialist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --teal: #1D9E75;
+      --teal-light: #E1F5EE;
+      --teal-mid: #9FE1CB;
+      --teal-dark: #0F6E56;
+      --charcoal: #2C2C2A;
+      --charcoal-mid: #5F5E5A;
+      --charcoal-light: #F1EFE8;
+      --white: #ffffff;
+      --border: rgba(44,44,42,0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--charcoal);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 0.5px solid var(--border);
+      padding: 0 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--charcoal);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--teal); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--charcoal-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      padding: 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 70% at 80% 50%, #E1F5EE 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; max-width: 620px; }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      background: var(--teal-light);
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 1.75rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--teal);
+      border-radius: 50%;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 6vw, 68px);
+      font-weight: 400;
+      line-height: 1.12;
+      margin-bottom: 1.5rem;
+      color: var(--charcoal);
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--teal);
+    }
+    .hero-sub {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--charcoal-mid);
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--teal);
+      color: #fff;
+      border: none;
+      padding: 13px 28px;
+      border-radius: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--charcoal);
+      border: 1px solid var(--border);
+      padding: 13px 28px;
+      border-radius: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-1px); }
+    .hero-stats {
+      position: absolute;
+      right: 4rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .stat-card {
+      background: var(--white);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      text-align: right;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-label { font-size: 12px; color: var(--charcoal-mid); font-weight: 400; }
+
+    /* ── SHARED SECTION ── */
+    .section { padding: 5rem 4rem; }
+    .section-alt { background: var(--charcoal-light); }
+    .section-inner { max-width: 900px; margin: 0 auto; }
+    .section-header { margin-bottom: 3rem; }
+    .section-tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 400;
+      color: var(--charcoal);
+    }
+
+    /* ── ABOUT ── */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .about-text {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--charcoal-mid);
+      line-height: 1.9;
+    }
+    .about-text p { margin-bottom: 1rem; }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-avatar {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--teal-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-avatar-initials {
+      font-family: 'Playfair Display', serif;
+      font-size: 72px;
+      font-weight: 400;
+      color: var(--teal);
+      opacity: 0.5;
+    }
+    .about-avatar-label {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      font-size: 13px;
+      color: var(--teal-dark);
+      font-weight: 500;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .skill-card {
+      background: var(--white);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: box-shadow 0.2s;
+    }
+    .skill-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+    .skill-icon {
+      width: 40px; height: 40px;
+      background: var(--teal-light);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .skill-card h4 { font-size: 15px; font-weight: 500; margin-bottom: 0.75rem; color: var(--charcoal); }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-tag {
+      font-size: 12px;
+      background: var(--charcoal-light);
+      color: var(--charcoal-mid);
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-list { display: flex; flex-direction: column; }
+    .exp-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 2rem;
+      padding: 2rem 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-date { font-size: 13px; color: var(--charcoal-mid); padding-top: 3px; font-weight: 300; }
+    .exp-role { font-size: 16px; font-weight: 500; margin-bottom: 4px; }
+    .exp-company { font-size: 13px; color: var(--teal); margin-bottom: 0.6rem; font-weight: 400; }
+    .exp-desc { font-size: 14px; color: var(--charcoal-mid); font-weight: 300; line-height: 1.8; }
+
+    /* ── PROJECTS ── */
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .project-card {
+      background: var(--white);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.07); }
+    .project-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      color: var(--teal-mid);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .project-card h4 { font-size: 15px; font-weight: 500; margin-bottom: 0.5rem; }
+    .project-card p { font-size: 13px; color: var(--charcoal-mid); font-weight: 300; line-height: 1.7; flex: 1; margin-bottom: 1rem; }
+    .project-result {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--teal-dark);
+      background: var(--teal-light);
+      padding: 4px 12px;
+      border-radius: 100px;
+      display: inline-block;
+    }
+
+    /* ── CONTACT ── */
+    .contact-wrap {
+      background: var(--charcoal);
+      border-radius: 16px;
+      padding: 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .contact-wrap h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .contact-wrap h3 em { font-style: italic; color: var(--teal-mid); }
+    .contact-wrap p { font-size: 15px; color: rgba(255,255,255,0.55); font-weight: 300; margin-bottom: 2rem; line-height: 1.8; }
+    .contact-wrap .btn-primary { background: var(--teal); }
+    .contact-details { display: flex; flex-direction: column; gap: 1.25rem; }
+    .contact-detail { display: flex; align-items: center; gap: 14px; }
+    .contact-detail-icon {
+      width: 36px; height: 36px;
+      border: 0.5px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-detail-text { font-size: 14px; }
+    .contact-detail-label { color: rgba(255,255,255,0.4); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 400; }
+    .contact-detail-value { color: var(--white); font-weight: 400; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem 4rem;
+      border-top: 0.5px solid var(--border);
+      font-size: 13px;
+      color: var(--charcoal-mid);
+      font-weight: 300;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 0 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .hero { padding: 4rem 1.5rem; min-height: auto; flex-direction: column; align-items: flex-start; padding-top: 3rem; }
+      .hero-stats { position: static; transform: none; flex-direction: row; flex-wrap: wrap; margin-top: 3rem; }
+      .stat-card { text-align: left; flex: 1; min-width: 130px; }
+      .section { padding: 3.5rem 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-avatar { aspect-ratio: 4/3; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .exp-item { grid-template-columns: 1fr; gap: 0.25rem; }
+      .contact-wrap { grid-template-columns: 1fr; padding: 2.5rem; gap: 2rem; }
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-eyebrow { animation: fadeUp 0.5s ease both; }
+    .hero h1 { animation: fadeUp 0.5s 0.1s ease both; }
+    .hero-sub { animation: fadeUp 0.5s 0.2s ease both; }
+    .hero-ctas { animation: fadeUp 0.5s 0.3s ease both; }
+    .hero-stats { animation: fadeUp 0.5s 0.35s ease both; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="nav-logo">Angela <span>Ansah</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Available for projects</div>
+      <h1>Digital Marketing<br>that <em>actually</em><br>moves the needle.</h1>
+      <p class="hero-sub">Hi, I'm Angela Oforiwaa Ansah — a freelance digital marketing specialist helping brands grow their presence, engage audiences, and drive real results.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-primary">Get in touch</a>
+        <a href="#projects" class="btn-outline">View my work</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Years experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">30+</div>
+        <div class="stat-label">Clients served</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">3×</div>
+        <div class="stat-label">Avg. ROAS delivered</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section section-alt" id="about">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-tag">About me</div>
+        <div class="section-title">Who I am</div>
+      </div>
+      <div class="about-grid">
+        <div class="about-avatar">
+          <div class="about-avatar-initials">AOA</div>
+          <div class="about-avatar-label">Angela Oforiwaa Ansah</div>
+        </div>
+        <div class="about-text">
+          <p>I'm a passionate freelance digital marketing specialist based in Accra, Ghana, with hands-on experience crafting and executing data-driven strategies across social media, content creation, SEO, and paid advertising.</p>
+          <p>I partner with businesses — from early-stage startups to established brands — to build their digital footprint and convert audiences into loyal customers. I believe great marketing tells a story that resonates, and I bring both creativity and analytical rigor to every campaign I run.</p>
+          <p>When I'm not optimising a campaign, I'm exploring the latest trends in digital marketing, mentoring aspiring marketers, and building communities online.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-tag">What I do</div>
+        <div class="section-title">Core skills</div>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8"><path d="M17 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/><path d="M9 12h6M9 8h6M9 16h4"/></svg>
+          </div>
+          <h4>Social Media Management</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Content strategy</span>
+            <span class="skill-tag">Instagram</span>
+            <span class="skill-tag">LinkedIn</span>
+            <span class="skill-tag">TikTok</span>
+            <span class="skill-tag">Facebook</span>
+            <span class="skill-tag">Community management</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h4>Paid Advertising</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Google Ads</span>
+            <span class="skill-tag">Meta Ads</span>
+            <span class="skill-tag">Campaign management</span>
+            <span class="skill-tag">A/B testing</span>
+            <span class="skill-tag">Budget optimisation</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <h4>Content & SEO</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Copywriting</span>
+            <span class="skill-tag">Keyword research</span>
+            <span class="skill-tag">On-page SEO</span>
+            <span class="skill-tag">Email marketing</span>
+            <span class="skill-tag">Blog writing</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h4>Analytics & Reporting</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Google Analytics</span>
+            <span class="skill-tag">Meta Insights</span>
+            <span class="skill-tag">KPI tracking</span>
+            <span class="skill-tag">Monthly reporting</span>
+            <span class="skill-tag">Data storytelling</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section section-alt" id="experience">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-tag">My journey</div>
+        <div class="section-title">Experience</div>
+      </div>
+      <div class="exp-list">
+        <div class="exp-item">
+          <div class="exp-date">2022 — Present</div>
+          <div>
+            <div class="exp-role">Freelance Digital Marketing Specialist</div>
+            <div class="exp-company">Self-employed · Remote</div>
+            <div class="exp-desc">Manage end-to-end digital marketing for multiple clients across e-commerce, hospitality, and professional services. Develop content calendars, run paid ad campaigns, optimise SEO, and deliver monthly performance reports with actionable insights.</div>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-date">2020 — 2022</div>
+          <div>
+            <div class="exp-role">Social Media Coordinator</div>
+            <div class="exp-company">Marketing Agency · Accra, Ghana</div>
+            <div class="exp-desc">Created and scheduled content for client brands across Instagram, Facebook, and Twitter. Assisted in Meta Ads campaign setup, monitored weekly performance metrics, and collaborated with designers to produce on-brand visuals.</div>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-date">2019 — 2020</div>
+          <div>
+            <div class="exp-role">Marketing Intern</div>
+            <div class="exp-company">Tech Startup · Accra, Ghana</div>
+            <div class="exp-desc">Supported the marketing team with email campaigns, social media scheduling, and competitor research. Gained foundational experience in digital strategy, brand communications, and customer engagement.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-tag">Portfolio</div>
+        <div class="section-title">Featured projects</div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-num">01</div>
+          <h4>E-commerce Brand Launch</h4>
+          <p>Full digital marketing setup for a local fashion brand — social strategy, paid ads, and email flows built from scratch to launch.</p>
+          <span class="project-result">3× ROAS in 60 days</span>
+        </div>
+        <div class="project-card">
+          <div class="project-num">02</div>
+          <h4>Community Growth Campaign</h4>
+          <p>Grew an Instagram page from 800 to 12,000 followers in 4 months through organic content strategy and targeted engagement.</p>
+          <span class="project-result">+1,400% follower growth</span>
+        </div>
+        <div class="project-card">
+          <div class="project-num">03</div>
+          <h4>SEO Content Overhaul</h4>
+          <p>Redesigned a hospitality brand's blog and on-page SEO, resulting in significant improvements in organic search visibility.</p>
+          <span class="project-result">+220% organic traffic</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="section-inner">
+      <div class="contact-wrap">
+        <div>
+          <h3>Let's grow your brand <em>together.</em></h3>
+          <p>I'm open to freelance projects, collaborations, and consulting engagements. Drop me a message and let's talk about what we can build.</p>
+          <a href="mailto:angela@example.com" class="btn-primary">Send me a message</a>
+        </div>
+        <div class="contact-details">
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <div class="contact-detail-label">Email</div>
+              <div class="contact-detail-value">angela@example.com</div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <div class="contact-detail-label">Location</div>
+              <div class="contact-detail-value">Accra, Ghana</div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <div class="contact-detail-label">Availability</div>
+              <div class="contact-detail-value">Open to new projects</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Angela Oforiwaa Ansah · Freelance Digital Marketing Specialist · Accra, Ghana</p>
+  </footer>
+
+</body>
+</html>
