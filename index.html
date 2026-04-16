@@ -4,610 +4,661 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Angela Oforiwaa Ansah — Digital Marketing Specialist</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --teal: #1D9E75;
-      --teal-light: #E1F5EE;
-      --teal-mid: #9FE1CB;
-      --teal-dark: #0F6E56;
-      --charcoal: #2C2C2A;
-      --charcoal-mid: #5F5E5A;
-      --charcoal-light: #F1EFE8;
-      --white: #ffffff;
-      --border: rgba(44,44,42,0.12);
+      --teal: #1D9E75; --teal-light: #E1F5EE; --teal-mid: #9FE1CB; --teal-dark: #0F6E56;
+      --charcoal: #2C2C2A; --charcoal-mid: #5F5E5A; --charcoal-light: #F1EFE8;
+      --white: #ffffff; --border: rgba(44,44,42,0.12);
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--charcoal); background: var(--white); line-height: 1.7; }
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      color: var(--charcoal);
-      background: var(--white);
-      line-height: 1.7;
+    /* EDIT BANNER */
+    #edit-banner {
+      background: var(--teal); color: #fff;
+      padding: 10px 2rem; display: flex; align-items: center; justify-content: space-between;
+      font-size: 13px; font-weight: 500; gap: 1rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 200;
     }
+    .banner-left { display: flex; align-items: center; gap: 10px; }
+    .banner-dot { width: 8px; height: 8px; background: #fff; border-radius: 50%; animation: blink 1.5s infinite; }
+    @keyframes blink { 0%,100%{opacity:1}50%{opacity:0.3} }
+    .banner-right { display: flex; gap: 8px; flex-wrap: wrap; }
+    .banner-btn {
+      background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4);
+      color: #fff; padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 500;
+      cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.2s;
+    }
+    .banner-btn:hover { background: rgba(255,255,255,0.35); }
+    .banner-btn.save { background: #fff; color: var(--teal); border-color: #fff; }
+    .banner-btn.save:hover { background: #e8f9f3; }
 
-    /* ── NAV ── */
+    /* EDIT MODE */
+    body.edit-mode [contenteditable="true"] { outline: none; border-radius: 3px; cursor: text; }
+    body.edit-mode [contenteditable="true"]:hover { background: rgba(29,158,117,0.08); box-shadow: 0 0 0 2px rgba(29,158,117,0.35); }
+    body.edit-mode [contenteditable="true"]:focus { background: rgba(29,158,117,0.1); box-shadow: 0 0 0 2px var(--teal); }
+    body:not(.edit-mode) [contenteditable="true"] { pointer-events: none; }
+
+    /* NAV */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px);
+      position: sticky; top: 44px; z-index: 100;
+      background: rgba(255,255,255,0.94); backdrop-filter: blur(12px);
       border-bottom: 0.5px solid var(--border);
-      padding: 0 4rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 64px;
+      padding: 0 4rem; display: flex; justify-content: space-between; align-items: center; height: 64px;
     }
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      font-weight: 400;
-      color: var(--charcoal);
-      text-decoration: none;
-    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--charcoal); text-decoration: none; }
     .nav-logo span { color: var(--teal); }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a {
-      font-size: 13px;
-      font-weight: 400;
-      letter-spacing: 0.04em;
-      color: var(--charcoal-mid);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--charcoal-mid); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--teal); }
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 92vh;
-      display: flex;
-      align-items: center;
-      padding: 0 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 60% 70% at 80% 50%, #E1F5EE 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-content { position: relative; max-width: 620px; }
+    /* HERO */
+    .hero { min-height: 90vh; display: flex; align-items: center; padding: 0 4rem; position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 80% 50%, #E1F5EE 0%, transparent 70%); pointer-events: none; }
+    .hero-content { position: relative; max-width: 580px; }
     .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--teal-dark);
-      background: var(--teal-light);
-      padding: 6px 14px;
-      border-radius: 100px;
-      margin-bottom: 1.75rem;
+      display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal-dark); background: var(--teal-light);
+      padding: 6px 14px; border-radius: 100px; margin-bottom: 1.75rem;
     }
-    .hero-eyebrow::before {
-      content: '';
-      width: 6px; height: 6px;
-      background: var(--teal);
-      border-radius: 50%;
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(42px, 6vw, 68px);
-      font-weight: 400;
-      line-height: 1.12;
-      margin-bottom: 1.5rem;
-      color: var(--charcoal);
-    }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--teal);
-    }
-    .hero-sub {
-      font-size: 17px;
-      font-weight: 300;
-      color: var(--charcoal-mid);
-      max-width: 480px;
-      margin-bottom: 2.5rem;
-      line-height: 1.8;
-    }
+    .hero-eyebrow::before { content:''; width:6px; height:6px; background:var(--teal); border-radius:50%; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(38px,5.5vw,62px); font-weight: 400; line-height: 1.12; margin-bottom: 1.5rem; }
+    .hero h1 em { font-style: italic; color: var(--teal); }
+    .hero-sub { font-size: 16px; font-weight: 300; color: var(--charcoal-mid); max-width: 460px; margin-bottom: 2.5rem; line-height: 1.8; }
     .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--teal);
-      color: #fff;
-      border: none;
-      padding: 13px 28px;
-      border-radius: 6px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
-      text-decoration: none;
-      display: inline-block;
-    }
+    .btn-primary { background: var(--teal); color: #fff; border: none; padding: 13px 28px; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; transition: background 0.2s, transform 0.15s; text-decoration: none; display: inline-block; }
     .btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); }
-    .btn-outline {
-      background: transparent;
-      color: var(--charcoal);
-      border: 1px solid var(--border);
-      padding: 13px 28px;
-      border-radius: 6px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: border-color 0.2s, color 0.2s, transform 0.15s;
-      text-decoration: none;
-      display: inline-block;
-    }
+    .btn-outline { background: transparent; color: var(--charcoal); border: 1px solid var(--border); padding: 13px 28px; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; transition: border-color 0.2s, color 0.2s, transform 0.15s; text-decoration: none; display: inline-block; }
     .btn-outline:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-1px); }
-    .hero-stats {
-      position: absolute;
-      right: 4rem;
-      top: 50%;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    .stat-card {
-      background: var(--white);
-      border: 0.5px solid var(--border);
-      border-radius: 12px;
-      padding: 1.25rem 1.5rem;
-      text-align: right;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.04);
-    }
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 32px;
-      font-weight: 400;
-      color: var(--teal);
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-    .stat-label { font-size: 12px; color: var(--charcoal-mid); font-weight: 400; }
+    .hero-stats { position: absolute; right: 4rem; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 1.5rem; }
+    .stat-card { background: var(--white); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; text-align: right; box-shadow: 0 2px 20px rgba(0,0,0,0.04); }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--teal); line-height: 1; margin-bottom: 4px; }
+    .stat-label { font-size: 12px; color: var(--charcoal-mid); }
 
-    /* ── SHARED SECTION ── */
+    /* SECTIONS */
     .section { padding: 5rem 4rem; }
     .section-alt { background: var(--charcoal-light); }
     .section-inner { max-width: 900px; margin: 0 auto; }
     .section-header { margin-bottom: 3rem; }
-    .section-tag {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 0.6rem;
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 36px;
-      font-weight: 400;
-      color: var(--charcoal);
-    }
+    .section-tag { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.6rem; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 400; }
 
-    /* ── ABOUT ── */
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-    .about-text {
-      font-size: 16px;
-      font-weight: 300;
-      color: var(--charcoal-mid);
-      line-height: 1.9;
-    }
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; }
+    .about-text { font-size: 16px; font-weight: 300; color: var(--charcoal-mid); line-height: 1.9; }
     .about-text p { margin-bottom: 1rem; }
-    .about-text p:last-child { margin-bottom: 0; }
-    .about-avatar {
-      width: 100%;
-      aspect-ratio: 3/4;
-      background: var(--teal-light);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .about-avatar-initials {
-      font-family: 'Playfair Display', serif;
-      font-size: 72px;
-      font-weight: 400;
-      color: var(--teal);
-      opacity: 0.5;
-    }
-    .about-avatar-label {
-      position: absolute;
-      bottom: 1.5rem;
-      left: 1.5rem;
-      font-size: 13px;
-      color: var(--teal-dark);
-      font-weight: 500;
-    }
 
-    /* ── SKILLS ── */
-    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    .skill-card {
-      background: var(--white);
-      border: 0.5px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: box-shadow 0.2s;
-    }
-    .skill-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
-    .skill-icon {
-      width: 40px; height: 40px;
-      background: var(--teal-light);
-      border-radius: 8px;
+    /* PHOTO FRAMES */
+    .photo-frame {
+      border-radius: 14px; overflow: hidden; position: relative; cursor: pointer;
+      background: var(--teal-light); border: 2px dashed var(--teal-mid);
       display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1rem;
+      transition: border-color 0.2s;
     }
-    .skill-card h4 { font-size: 15px; font-weight: 500; margin-bottom: 0.75rem; color: var(--charcoal); }
+    .photo-frame.profile { aspect-ratio: 3/4; }
+    .photo-frame:hover { border-color: var(--teal); }
+    .photo-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: none; }
+    .photo-frame.has-photo img { display: block; }
+    .photo-frame.has-photo .ph-inner { display: none; }
+    .ph-inner { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 2rem; text-align: center; }
+    .ph-initials { font-family: 'Playfair Display', serif; font-size: 64px; color: var(--teal); opacity: 0.3; line-height: 1; }
+    .ph-label { font-size: 13px; color: var(--teal-dark); font-weight: 500; }
+    .ph-sub { font-size: 11px; color: var(--charcoal-mid); }
+    .photo-overlay { position: absolute; inset: 0; background: rgba(15,110,86,0.75); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; opacity: 0; transition: opacity 0.2s; }
+    .photo-frame:hover .photo-overlay { opacity: 1; }
+    .photo-overlay-text { color: #fff; font-size: 14px; font-weight: 500; }
+    .photo-overlay-sub { color: rgba(255,255,255,0.75); font-size: 12px; }
+    .name-badge { position: absolute; bottom: 1rem; left: 1rem; right: 1rem; background: rgba(255,255,255,0.9); border-radius: 8px; padding: 8px 12px; font-size: 13px; font-weight: 500; color: var(--teal-dark); backdrop-filter: blur(4px); }
+    input[type="file"] { display: none; }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .skill-card { background: var(--white); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.5rem; transition: box-shadow 0.2s; }
+    .skill-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+    .skill-icon { width: 40px; height: 40px; background: var(--teal-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+    .skill-card h4 { font-size: 15px; font-weight: 500; margin-bottom: 0.75rem; }
     .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .skill-tag {
-      font-size: 12px;
-      background: var(--charcoal-light);
-      color: var(--charcoal-mid);
-      padding: 4px 10px;
-      border-radius: 100px;
-    }
+    .skill-tag { font-size: 12px; background: var(--charcoal-light); color: var(--charcoal-mid); padding: 4px 10px; border-radius: 100px; }
 
-    /* ── EXPERIENCE ── */
-    .exp-list { display: flex; flex-direction: column; }
-    .exp-item {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 2rem;
-      padding: 2rem 0;
-      border-bottom: 0.5px solid var(--border);
-    }
+    /* EXPERIENCE */
+    .exp-item { display: grid; grid-template-columns: 160px 1fr; gap: 2rem; padding: 2rem 0; border-bottom: 0.5px solid var(--border); }
     .exp-item:last-child { border-bottom: none; }
-    .exp-date { font-size: 13px; color: var(--charcoal-mid); padding-top: 3px; font-weight: 300; }
+    .exp-date { font-size: 13px; color: var(--charcoal-mid); font-weight: 300; padding-top: 3px; }
     .exp-role { font-size: 16px; font-weight: 500; margin-bottom: 4px; }
-    .exp-company { font-size: 13px; color: var(--teal); margin-bottom: 0.6rem; font-weight: 400; }
-    .exp-desc { font-size: 14px; color: var(--charcoal-mid); font-weight: 300; line-height: 1.8; }
+    .exp-company { font-size: 13px; color: var(--teal); margin-bottom: 0.6rem; }
+    .exp-bullets { padding-left: 1.2rem; }
+    .exp-bullets li { font-size: 14px; color: var(--charcoal-mid); font-weight: 300; line-height: 1.8; margin-bottom: 4px; }
 
-    /* ── PROJECTS ── */
+    /* PROJECTS */
     .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .project-card {
-      background: var(--white);
-      border: 0.5px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: flex;
-      flex-direction: column;
-    }
+    .project-card { background: var(--white); border: 0.5px solid var(--border); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; }
     .project-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.07); }
-    .project-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 40px;
-      color: var(--teal-mid);
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
-    .project-card h4 { font-size: 15px; font-weight: 500; margin-bottom: 0.5rem; }
-    .project-card p { font-size: 13px; color: var(--charcoal-mid); font-weight: 300; line-height: 1.7; flex: 1; margin-bottom: 1rem; }
-    .project-result {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--teal-dark);
-      background: var(--teal-light);
-      padding: 4px 12px;
-      border-radius: 100px;
-      display: inline-block;
-    }
 
-    /* ── CONTACT ── */
-    .contact-wrap {
-      background: var(--charcoal);
-      border-radius: 16px;
-      padding: 4rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    .contact-wrap h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 36px;
-      font-weight: 400;
-      color: var(--white);
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
+    /* Project photo */
+    .proj-photo { height: 170px; background: var(--teal-light); border: 2px dashed var(--teal-mid); border-bottom: 0.5px solid var(--border); position: relative; overflow: hidden; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color 0.2s; }
+    .proj-photo:hover { border-color: var(--teal); }
+    .proj-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: none; }
+    .proj-photo.has-photo img { display: block; }
+    .proj-photo.has-photo .proj-ph-inner { display: none; }
+    .proj-ph-inner { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+    .proj-ph-inner span { font-size: 12px; color: var(--teal-dark); font-weight: 500; }
+    .proj-photo .photo-overlay { border-radius: 0; }
+
+    .project-body { padding: 1.25rem; display: flex; flex-direction: column; flex: 1; }
+    .project-num { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--teal-mid); line-height: 1; margin-bottom: 0.5rem; }
+    .project-card h4 { font-size: 15px; font-weight: 500; margin-bottom: 0.5rem; }
+    .project-card > .project-body > p { font-size: 13px; color: var(--charcoal-mid); font-weight: 300; line-height: 1.7; flex: 1; margin-bottom: 1rem; }
+    .project-footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+    .project-result { font-size: 12px; font-weight: 500; color: var(--teal-dark); background: var(--teal-light); padding: 4px 12px; border-radius: 100px; }
+
+    /* Project link */
+    .proj-link-row { border-top: 0.5px solid var(--border); padding-top: 10px; display: flex; align-items: center; gap: 8px; }
+    .proj-link-row svg { flex-shrink: 0; color: var(--teal); }
+    .proj-link-input { flex: 1; border: none; border-bottom: 1px solid var(--border); background: transparent; font-size: 12px; color: var(--charcoal); font-family: 'DM Sans', sans-serif; padding: 2px 4px; outline: none; min-width: 0; }
+    .proj-link-input:focus { border-bottom-color: var(--teal); }
+    .proj-link-input::placeholder { color: var(--charcoal-mid); }
+    .proj-save-btn { font-size: 11px; background: var(--teal-light); color: var(--teal-dark); border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 500; padding: 4px 10px; border-radius: 4px; white-space: nowrap; transition: background 0.15s; }
+    .proj-save-btn:hover { background: var(--teal-mid); }
+    .proj-visit-link { font-size: 12px; color: var(--teal); font-weight: 500; text-decoration: none; white-space: nowrap; }
+    .proj-visit-link:hover { text-decoration: underline; }
+    .proj-edit-link-btn { font-size: 11px; color: var(--charcoal-mid); background: none; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; padding: 2px 6px; }
+    .proj-edit-link-btn:hover { color: var(--teal); }
+
+    /* EDUCATION */
+    .edu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .edu-card { background: var(--white); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+    .edu-degree { font-size: 15px; font-weight: 500; margin-bottom: 4px; }
+    .edu-school { font-size: 13px; color: var(--teal); margin-bottom: 4px; }
+    .edu-date { font-size: 12px; color: var(--charcoal-mid); }
+
+    /* CONTACT */
+    .contact-wrap { background: var(--charcoal); border-radius: 16px; padding: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .contact-wrap h3 { font-family: 'Playfair Display', serif; font-size: 34px; color: var(--white); margin-bottom: 1rem; line-height: 1.2; }
     .contact-wrap h3 em { font-style: italic; color: var(--teal-mid); }
-    .contact-wrap p { font-size: 15px; color: rgba(255,255,255,0.55); font-weight: 300; margin-bottom: 2rem; line-height: 1.8; }
-    .contact-wrap .btn-primary { background: var(--teal); }
+    .contact-wrap > div > p { font-size: 15px; color: rgba(255,255,255,0.55); font-weight: 300; margin-bottom: 2rem; line-height: 1.8; }
     .contact-details { display: flex; flex-direction: column; gap: 1.25rem; }
     .contact-detail { display: flex; align-items: center; gap: 14px; }
-    .contact-detail-icon {
-      width: 36px; height: 36px;
-      border: 0.5px solid rgba(255,255,255,0.15);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .contact-detail-text { font-size: 14px; }
-    .contact-detail-label { color: rgba(255,255,255,0.4); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 400; }
-    .contact-detail-value { color: var(--white); font-weight: 400; }
+    .contact-detail-icon { width: 36px; height: 36px; border: 0.5px solid rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-detail-label { color: rgba(255,255,255,0.4); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .contact-detail-value { color: var(--white); font-size: 14px; }
+    .contact-detail-value a { color: var(--teal-mid); text-decoration: none; }
+    .contact-detail-value a:hover { text-decoration: underline; }
+    body.edit-mode .contact-wrap [contenteditable]:hover { background: rgba(255,255,255,0.08); box-shadow: 0 0 0 2px rgba(159,225,203,0.5); }
+    body.edit-mode .contact-wrap [contenteditable]:focus { background: rgba(255,255,255,0.1); box-shadow: 0 0 0 2px var(--teal-mid); }
 
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 2rem 4rem;
-      border-top: 0.5px solid var(--border);
-      font-size: 13px;
-      color: var(--charcoal-mid);
-      font-weight: 300;
-    }
+    footer { text-align: center; padding: 2rem 4rem; border-top: 0.5px solid var(--border); font-size: 13px; color: var(--charcoal-mid); font-weight: 300; }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      nav { padding: 0 1.5rem; }
-      .nav-links { gap: 1.5rem; }
-      .hero { padding: 4rem 1.5rem; min-height: auto; flex-direction: column; align-items: flex-start; padding-top: 3rem; }
-      .hero-stats { position: static; transform: none; flex-direction: row; flex-wrap: wrap; margin-top: 3rem; }
-      .stat-card { text-align: left; flex: 1; min-width: 130px; }
-      .section { padding: 3.5rem 1.5rem; }
+    /* TOAST */
+    #toast { position: fixed; bottom: 2rem; right: 2rem; z-index: 9999; background: var(--charcoal); color: #fff; padding: 12px 20px; border-radius: 8px; font-size: 13px; font-weight: 500; opacity: 0; transform: translateY(8px); transition: opacity 0.3s, transform 0.3s; pointer-events: none; max-width: 320px; }
+    #toast.show { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      nav { padding: 0 1.5rem; top: 46px; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 12px; }
+      .hero { padding: 3rem 1.5rem; min-height: auto; flex-direction: column; align-items: flex-start; }
+      .hero-stats { position: static; transform: none; flex-direction: row; flex-wrap: wrap; margin-top: 2rem; width: 100%; }
+      .stat-card { flex: 1; min-width: 110px; text-align: left; }
+      .section { padding: 3rem 1.5rem; }
       .about-grid { grid-template-columns: 1fr; }
-      .about-avatar { aspect-ratio: 4/3; }
-      .skills-grid { grid-template-columns: 1fr; }
+      .skills-grid,.edu-grid { grid-template-columns: 1fr; }
       .projects-grid { grid-template-columns: 1fr; }
-      .exp-item { grid-template-columns: 1fr; gap: 0.25rem; }
-      .contact-wrap { grid-template-columns: 1fr; padding: 2.5rem; gap: 2rem; }
+      .exp-item { grid-template-columns: 1fr; gap: 0.2rem; }
+      .contact-wrap { grid-template-columns: 1fr; padding: 2rem; gap: 2rem; }
     }
 
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .hero-eyebrow { animation: fadeUp 0.5s ease both; }
-    .hero h1 { animation: fadeUp 0.5s 0.1s ease both; }
-    .hero-sub { animation: fadeUp 0.5s 0.2s ease both; }
-    .hero-ctas { animation: fadeUp 0.5s 0.3s ease both; }
-    .hero-stats { animation: fadeUp 0.5s 0.35s ease both; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)} }
+    .hero-eyebrow{animation:fadeUp .5s ease both}
+    .hero h1{animation:fadeUp .5s .1s ease both}
+    .hero-sub{animation:fadeUp .5s .2s ease both}
+    .hero-ctas{animation:fadeUp .5s .3s ease both}
+    .hero-stats{animation:fadeUp .5s .35s ease both}
   </style>
 </head>
-<body>
+<body class="edit-mode">
 
-  <nav>
-    <a href="#" class="nav-logo">Angela <span>Ansah</span></a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+<div id="edit-banner">
+  <div class="banner-left">
+    <div class="banner-dot"></div>
+    <span id="banner-msg">Edit Mode is ON — click any text to edit it directly</span>
+  </div>
+  <div class="banner-right">
+    <button class="banner-btn" onclick="toggleEdit()">Turn off editing</button>
+    <button class="banner-btn save" onclick="saveFile()">⬇ Download &amp; update site</button>
+  </div>
+</div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-      <div class="hero-eyebrow">Available for projects</div>
-      <h1>Digital Marketing<br>that <em>actually</em><br>moves the needle.</h1>
-      <p class="hero-sub">Hi, I'm Angela Oforiwaa Ansah — a freelance digital marketing specialist helping brands grow their presence, engage audiences, and drive real results.</p>
-      <div class="hero-ctas">
-        <a href="#contact" class="btn-primary">Get in touch</a>
-        <a href="#projects" class="btn-outline">View my work</a>
+<nav>
+  <a href="#" class="nav-logo">Angela <span>Ansah</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow" contenteditable="true">Available for projects</div>
+    <h1>Digital Marketing<br>that <em contenteditable="true">actually</em><br>moves the needle.</h1>
+    <p class="hero-sub" contenteditable="true">Hi, I'm Angela Oforiwaa Ansah — a Freelance Digital Marketer helping businesses strengthen their online presence through data-driven strategies in SEO, social media, paid advertising, and analytics.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Get in touch</a>
+      <a href="#projects" class="btn-outline">View my work</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-card"><div class="stat-num" contenteditable="true">1+</div><div class="stat-label" contenteditable="true">Years experience</div></div>
+    <div class="stat-card"><div class="stat-num" contenteditable="true">10k+</div><div class="stat-label" contenteditable="true">Followers grown</div></div>
+    <div class="stat-card"><div class="stat-num" contenteditable="true">35%</div><div class="stat-label" contenteditable="true">Avg. traffic increase</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section section-alt" id="about">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">About me</div>
+      <div class="section-title" contenteditable="true">Who I am</div>
+    </div>
+    <div class="about-grid">
+      <div class="photo-frame profile" id="frame-profile" onclick="pickPhoto('file-profile','frame-profile')" title="Click to upload your photo">
+        <input type="file" id="file-profile" accept="image/*" onchange="loadPhoto(event,'frame-profile')" />
+        <img src="" alt="Angela Oforiwaa Ansah" />
+        <div class="ph-inner">
+          <div class="ph-initials">AOA</div>
+          <div class="ph-label">Upload your profile photo</div>
+          <div class="ph-sub">Click to browse · JPG, PNG, WEBP</div>
+        </div>
+        <div class="photo-overlay">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <div class="photo-overlay-text">Change photo</div>
+          <div class="photo-overlay-sub">JPG, PNG or WEBP</div>
+        </div>
+        <div class="name-badge">Angela Oforiwaa Ansah</div>
+      </div>
+      <div class="about-text">
+        <p contenteditable="true">I'm a passionate Freelance Digital Marketing Specialist currently completing the Generation Ghana Digital Marketing Program. I have hands-on experience crafting and executing data-driven strategies across social media, content creation, SEO, and paid advertising.</p>
+        <p contenteditable="true">I partner with businesses — from early-stage startups to established brands — to increase visibility, enhance customer engagement, and drive measurable growth. With a strong background in research, project management, and team leadership, I bring a strategic and creative approach to every campaign.</p>
+        <p contenteditable="true">When I'm not optimising a campaign, I'm exploring the latest trends in digital marketing, mentoring aspiring marketers, and building communities online.</p>
       </div>
     </div>
-    <div class="hero-stats">
-      <div class="stat-card">
-        <div class="stat-num">5+</div>
-        <div class="stat-label">Years experience</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">30+</div>
-        <div class="stat-label">Clients served</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">3×</div>
-        <div class="stat-label">Avg. ROAS delivered</div>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ABOUT -->
-  <section class="section section-alt" id="about">
-    <div class="section-inner">
-      <div class="section-header">
-        <div class="section-tag">About me</div>
-        <div class="section-title">Who I am</div>
-      </div>
-      <div class="about-grid">
-        <div class="about-avatar">
-          <div class="about-avatar-initials">AOA</div>
-          <div class="about-avatar-label">Angela Oforiwaa Ansah</div>
-        </div>
-        <div class="about-text">
-          <p>I'm a passionate freelance digital marketing specialist based in Accra, Ghana, with hands-on experience crafting and executing data-driven strategies across social media, content creation, SEO, and paid advertising.</p>
-          <p>I partner with businesses — from early-stage startups to established brands — to build their digital footprint and convert audiences into loyal customers. I believe great marketing tells a story that resonates, and I bring both creativity and analytical rigor to every campaign I run.</p>
-          <p>When I'm not optimising a campaign, I'm exploring the latest trends in digital marketing, mentoring aspiring marketers, and building communities online.</p>
-        </div>
-      </div>
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">What I do</div>
+      <div class="section-title" contenteditable="true">Core skills</div>
     </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section class="section" id="skills">
-    <div class="section-inner">
-      <div class="section-header">
-        <div class="section-tag">What I do</div>
-        <div class="section-title">Core skills</div>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8"><path d="M17 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/><path d="M9 12h6M9 8h6M9 16h4"/></svg>
-          </div>
-          <h4>Social Media Management</h4>
-          <div class="skill-tags">
-            <span class="skill-tag">Content strategy</span>
-            <span class="skill-tag">Instagram</span>
-            <span class="skill-tag">LinkedIn</span>
-            <span class="skill-tag">TikTok</span>
-            <span class="skill-tag">Facebook</span>
-            <span class="skill-tag">Community management</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          </div>
-          <h4>Paid Advertising</h4>
-          <div class="skill-tags">
-            <span class="skill-tag">Google Ads</span>
-            <span class="skill-tag">Meta Ads</span>
-            <span class="skill-tag">Campaign management</span>
-            <span class="skill-tag">A/B testing</span>
-            <span class="skill-tag">Budget optimisation</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-          </div>
-          <h4>Content & SEO</h4>
-          <div class="skill-tags">
-            <span class="skill-tag">Copywriting</span>
-            <span class="skill-tag">Keyword research</span>
-            <span class="skill-tag">On-page SEO</span>
-            <span class="skill-tag">Email marketing</span>
-            <span class="skill-tag">Blog writing</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <h4>Analytics & Reporting</h4>
-          <div class="skill-tags">
-            <span class="skill-tag">Google Analytics</span>
-            <span class="skill-tag">Meta Insights</span>
-            <span class="skill-tag">KPI tracking</span>
-            <span class="skill-tag">Monthly reporting</span>
-            <span class="skill-tag">Data storytelling</span>
-          </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8"><path d="M17 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/><path d="M9 12h6M9 8h6M9 16h4"/></svg></div>
+        <h4 contenteditable="true">Digital Marketing</h4>
+        <div class="skill-tags">
+          <span class="skill-tag" contenteditable="true">SEO</span>
+          <span class="skill-tag" contenteditable="true">Social Media Marketing</span>
+          <span class="skill-tag" contenteditable="true">Paid Advertising</span>
+          <span class="skill-tag" contenteditable="true">Email Marketing</span>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section class="section section-alt" id="experience">
-    <div class="section-inner">
-      <div class="section-header">
-        <div class="section-tag">My journey</div>
-        <div class="section-title">Experience</div>
+      <div class="skill-card">
+        <div class="skill-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h4 contenteditable="true">Social Media Advertising</h4>
+        <div class="skill-tags">
+          <span class="skill-tag" contenteditable="true">Facebook Ads</span>
+          <span class="skill-tag" contenteditable="true">Instagram Ads</span>
+          <span class="skill-tag" contenteditable="true">Campaign Management</span>
+          <span class="skill-tag" contenteditable="true">A/B Testing</span>
+        </div>
       </div>
-      <div class="exp-list">
-        <div class="exp-item">
-          <div class="exp-date">2022 — Present</div>
-          <div>
-            <div class="exp-role">Freelance Digital Marketing Specialist</div>
-            <div class="exp-company">Self-employed · Remote</div>
-            <div class="exp-desc">Manage end-to-end digital marketing for multiple clients across e-commerce, hospitality, and professional services. Develop content calendars, run paid ad campaigns, optimise SEO, and deliver monthly performance reports with actionable insights.</div>
-          </div>
+      <div class="skill-card">
+        <div class="skill-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <h4 contenteditable="true">Content Creation &amp; Management</h4>
+        <div class="skill-tags">
+          <span class="skill-tag" contenteditable="true">Copywriting</span>
+          <span class="skill-tag" contenteditable="true">Content Strategy</span>
+          <span class="skill-tag" contenteditable="true">Campaign Management</span>
+          <span class="skill-tag" contenteditable="true">Brand Storytelling</span>
         </div>
-        <div class="exp-item">
-          <div class="exp-date">2020 — 2022</div>
-          <div>
-            <div class="exp-role">Social Media Coordinator</div>
-            <div class="exp-company">Marketing Agency · Accra, Ghana</div>
-            <div class="exp-desc">Created and scheduled content for client brands across Instagram, Facebook, and Twitter. Assisted in Meta Ads campaign setup, monitored weekly performance metrics, and collaborated with designers to produce on-brand visuals.</div>
-          </div>
-        </div>
-        <div class="exp-item">
-          <div class="exp-date">2019 — 2020</div>
-          <div>
-            <div class="exp-role">Marketing Intern</div>
-            <div class="exp-company">Tech Startup · Accra, Ghana</div>
-            <div class="exp-desc">Supported the marketing team with email campaigns, social media scheduling, and competitor research. Gained foundational experience in digital strategy, brand communications, and customer engagement.</div>
-          </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h4 contenteditable="true">Data Analysis &amp; Reporting</h4>
+        <div class="skill-tags">
+          <span class="skill-tag" contenteditable="true">Google Analytics</span>
+          <span class="skill-tag" contenteditable="true">Meta Insights</span>
+          <span class="skill-tag" contenteditable="true">Performance Tracking</span>
+          <span class="skill-tag" contenteditable="true">Market Research</span>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PROJECTS -->
-  <section class="section" id="projects">
-    <div class="section-inner">
-      <div class="section-header">
-        <div class="section-tag">Portfolio</div>
-        <div class="section-title">Featured projects</div>
-      </div>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-num">01</div>
-          <h4>E-commerce Brand Launch</h4>
-          <p>Full digital marketing setup for a local fashion brand — social strategy, paid ads, and email flows built from scratch to launch.</p>
-          <span class="project-result">3× ROAS in 60 days</span>
-        </div>
-        <div class="project-card">
-          <div class="project-num">02</div>
-          <h4>Community Growth Campaign</h4>
-          <p>Grew an Instagram page from 800 to 12,000 followers in 4 months through organic content strategy and targeted engagement.</p>
-          <span class="project-result">+1,400% follower growth</span>
-        </div>
-        <div class="project-card">
-          <div class="project-num">03</div>
-          <h4>SEO Content Overhaul</h4>
-          <p>Redesigned a hospitality brand's blog and on-page SEO, resulting in significant improvements in organic search visibility.</p>
-          <span class="project-result">+220% organic traffic</span>
-        </div>
-      </div>
+<!-- EXPERIENCE -->
+<section class="section section-alt" id="experience">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">My journey</div>
+      <div class="section-title" contenteditable="true">Work experience</div>
     </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section" id="contact">
-    <div class="section-inner">
-      <div class="contact-wrap">
+    <div class="exp-list">
+      <div class="exp-item">
+        <div class="exp-date" contenteditable="true">Jan 2026 – Present</div>
         <div>
-          <h3>Let's grow your brand <em>together.</em></h3>
-          <p>I'm open to freelance projects, collaborations, and consulting engagements. Drop me a message and let's talk about what we can build.</p>
-          <a href="/cdn-cgi/l/email-protection#d4b5bab3b1b8b594b1acb5b9a4b8b1fab7bbb9" class="btn-primary">Send me a message</a>
+          <div class="exp-role" contenteditable="true">Freelance Digital Marketer</div>
+          <div class="exp-company" contenteditable="true">Generation Ghana · Remote</div>
+          <ul class="exp-bullets">
+            <li contenteditable="true">Executed and optimized multi-channel digital marketing campaigns (social media ads, SEO, email), driving up to 35% increase in website traffic and improving conversion rates.</li>
+            <li contenteditable="true">Developed and implemented data-driven growth strategies, increasing client social media followership by 10,000+ within three months.</li>
+            <li contenteditable="true">Leveraged analytics and AI tools to track performance, generate insights, and continuously improve engagement, ROI, and overall campaign effectiveness.</li>
+            <li contenteditable="true">Collaborated with cross-functional teams to deliver strategic marketing initiatives, enhancing brand visibility and customer engagement across diverse industries.</li>
+          </ul>
         </div>
-        <div class="contact-details">
-          <div class="contact-detail">
-            <div class="contact-detail-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div class="contact-detail-text">
-              <div class="contact-detail-label">Email</div>
-              <div class="contact-detail-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7819161f1d1419381d00191508141d561b1715">[email&#160;protected]</a></div>
-            </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date" contenteditable="true">Oct 2024 – Sept 2025</div>
+        <div>
+          <div class="exp-role" contenteditable="true">National Service Personnel</div>
+          <div class="exp-company" contenteditable="true">Ministry of Finance · Accra, Ghana</div>
+          <ul class="exp-bullets">
+            <li contenteditable="true">Supported tax policy development and contributed to national-level fiscal initiatives through research, reporting, and workshop participation.</li>
+            <li contenteditable="true">Provided administrative and documentation support, ensuring accurate record-keeping and timely processing of tax exemption requirements.</li>
+            <li contenteditable="true">Collaborated with cross-functional teams to prepare reports, complete assignments, and streamline data processes, including TIN cleansing.</li>
+            <li contenteditable="true">Coordinated meetings and logistics while participating in ICUMS training, strengthening knowledge of digital customs systems.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date" contenteditable="true">January 2025</div>
+        <div>
+          <div class="exp-role" contenteditable="true">Data Collector</div>
+          <div class="exp-company" contenteditable="true">World Health Organisation (WHO) · Greater Accra</div>
+          <ul class="exp-bullets">
+            <li contenteditable="true">Collected and analyzed data on the impact of excise duties on sugar-sweetened beverages, alcoholic drinks, and tobacco in Greater Accra Central.</li>
+            <li contenteditable="true">Conducted quantitative data collection to assess the relationship between taxation policies and consumption patterns of targeted products.</li>
+            <li contenteditable="true">Contributed to comprehensive reports and policy recommendations aimed at reducing public health risks related to alcohol, tobacco, and sugary drinks.</li>
+            <li contenteditable="true">Presented findings to stakeholders, including government officials and health organizations, to inform policy decisions on excise duties.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date" contenteditable="true">Jun 2023 – Aug 2023</div>
+        <div>
+          <div class="exp-role" contenteditable="true">Intern</div>
+          <div class="exp-company" contenteditable="true">Ministry of Finance · Accra, Ghana</div>
+          <ul class="exp-bullets">
+            <li contenteditable="true">Managed filing and organization of tax-related documents, including tax exemption applications, MP records, and policy reports, ensuring accuracy and easy retrieval.</li>
+            <li contenteditable="true">Assisted in duties related to sourcing revenue on behalf of the Government of Ghana.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Portfolio</div>
+      <div class="section-title" contenteditable="true">Featured projects</div>
+    </div>
+    <div class="projects-grid">
+
+      <!-- PROJECT 1 -->
+      <div class="project-card">
+        <div class="proj-photo" id="pp1" onclick="pickPhoto('pf1','pp1')" title="Click to add a project image">
+          <input type="file" id="pf1" accept="image/*" onchange="loadPhoto(event,'pp1')" />
+          <img src="" alt="Project 1" />
+          <div class="proj-ph-inner">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            <span>Add project image</span>
           </div>
-          <div class="contact-detail">
-            <div class="contact-detail-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div class="contact-detail-text">
-              <div class="contact-detail-label">Location</div>
-              <div class="contact-detail-value">Accra, Ghana</div>
-            </div>
+          <div class="photo-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><div class="photo-overlay-text">Change image</div></div>
+        </div>
+        <div class="project-body">
+          <div class="project-num">01</div>
+          <h4 contenteditable="true">Digital Marketing Strategy – HMD Events</h4>
+          <p contenteditable="true">Developed a multi-channel marketing strategy using content marketing, TikTok growth, paid ads, and SEO to increase brand visibility and drive event bookings. Optimized lead generation funnels via WhatsApp and social platforms, targeting 20+ bookings within 3 months.</p>
+          <div class="project-footer">
+            <span class="project-result" contenteditable="true">20+ bookings in 3 months</span>
           </div>
-          <div class="contact-detail">
-            <div class="contact-detail-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
-            <div class="contact-detail-text">
-              <div class="contact-detail-label">Availability</div>
-              <div class="contact-detail-value">Open to new projects</div>
-            </div>
+          <div class="proj-link-row" id="plr1">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <input class="proj-link-input" id="pli1" type="url" placeholder="Paste project URL here…" />
+            <a class="proj-visit-link" id="plv1" href="#" target="_blank" rel="noopener" style="display:none">View →</a>
+            <button class="proj-edit-link-btn" id="ple1" onclick="editLink(1)" style="display:none">Edit</button>
+            <button class="proj-save-btn" id="pls1" onclick="saveLink(1)">Save link</button>
           </div>
         </div>
       </div>
-  
+
+      <!-- PROJECT 2 -->
+      <div class="project-card">
+        <div class="proj-photo" id="pp2" onclick="pickPhoto('pf2','pp2')" title="Click to add a project image">
+          <input type="file" id="pf2" accept="image/*" onchange="loadPhoto(event,'pp2')" />
+          <img src="" alt="Project 2" />
+          <div class="proj-ph-inner">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            <span>Add project image</span>
+          </div>
+          <div class="photo-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><div class="photo-overlay-text">Change image</div></div>
+        </div>
+        <div class="project-body">
+          <div class="project-num">02</div>
+          <h4 contenteditable="true">SEO Strategy – CJR Luxury Fashion Brand</h4>
+          <p contenteditable="true">Designed and implemented an SEO strategy including keyword research, on-page optimization, and backlink building to improve search rankings and organic traffic within the luxury fashion niche over an 8-week execution period.</p>
+          <div class="project-footer">
+            <span class="project-result" contenteditable="true">Improved organic rankings</span>
+          </div>
+          <div class="proj-link-row" id="plr2">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <input class="proj-link-input" id="pli2" type="url" placeholder="Paste project URL here…" />
+            <a class="proj-visit-link" id="plv2" href="#" target="_blank" rel="noopener" style="display:none">View →</a>
+            <button class="proj-edit-link-btn" id="ple2" onclick="editLink(2)" style="display:none">Edit</button>
+            <button class="proj-save-btn" id="pls2" onclick="saveLink(2)">Save link</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 3 -->
+      <div class="project-card">
+        <div class="proj-photo" id="pp3" onclick="pickPhoto('pf3','pp3')" title="Click to add a project image">
+          <input type="file" id="pf3" accept="image/*" onchange="loadPhoto(event,'pp3')" />
+          <img src="" alt="Project 3" />
+          <div class="proj-ph-inner">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            <span>Add project image</span>
+          </div>
+          <div class="photo-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg><div class="photo-overlay-text">Change image</div></div>
+        </div>
+        <div class="project-body">
+          <div class="project-num">03</div>
+          <h4 contenteditable="true">Your third project title here</h4>
+          <p contenteditable="true">Describe what you did — the strategy, channels used, and the outcome. Click this text to edit it. Add a project image above and a link below.</p>
+          <div class="project-footer">
+            <span class="project-result" contenteditable="true">Your key result here</span>
+          </div>
+          <div class="proj-link-row" id="plr3">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <input class="proj-link-input" id="pli3" type="url" placeholder="Paste project URL here…" />
+            <a class="proj-visit-link" id="plv3" href="#" target="_blank" rel="noopener" style="display:none">View →</a>
+            <button class="proj-edit-link-btn" id="ple3" onclick="editLink(3)" style="display:none">Edit</button>
+            <button class="proj-save-btn" id="pls3" onclick="saveLink(3)">Save link</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section section-alt" id="education">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Qualifications</div>
+      <div class="section-title" contenteditable="true">Education &amp; certifications</div>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-degree" contenteditable="true">Digital Marketing</div>
+        <div class="edu-school" contenteditable="true">Generation Ghana, Accra</div>
+        <div class="edu-date" contenteditable="true">Jan 2026 – April 2026</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree" contenteditable="true">Bachelor of Business Administration</div>
+        <div class="edu-school" contenteditable="true">University of Professional Studies, Accra</div>
+        <div class="edu-date" contenteditable="true">Sept 2020 – Aug 2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <div class="contact-wrap">
+      <div>
+        <h3>Let's grow your brand <em contenteditable="true">together.</em></h3>
+        <p contenteditable="true">I'm open to freelance projects, collaborations, and consulting engagements. Drop me a message and let's talk about what we can build.</p>
+        <a href="mailto:oforiwaaansahangela@gmail.com" class="btn-primary">Send me a message</a>
+      </div>
+      <div class="contact-details">
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div>
+            <div class="contact-detail-label">Email</div>
+            <div class="contact-detail-value" contenteditable="true">oforiwaaansahangela@gmail.com</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.38 2 2 0 0 1 3.57 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.01z"/></svg></div>
+          <div>
+            <div class="contact-detail-label">Phone</div>
+            <div class="contact-detail-value" contenteditable="true">+233 554496809</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+          <div>
+            <div class="contact-detail-label">LinkedIn</div>
+            <div class="contact-detail-value"><a href="https://www.linkedin.com/in/angela-oforiwaa-ansah-a1116a282" target="_blank" rel="noopener">linkedin.com/in/angela-oforiwaa-ansah</a></div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div>
+            <div class="contact-detail-label">Location</div>
+            <div class="contact-detail-value" contenteditable="true">Accra, Ghana</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p contenteditable="true">© 2026 Angela Oforiwaa Ansah · Freelance Digital Marketing Specialist · Accra, Ghana</p>
+</footer>
+
+<div id="toast"></div>
+
+<script>
+  // EDIT MODE TOGGLE
+  var editing = true;
+  function toggleEdit() {
+    editing = !editing;
+    var b = document.querySelector('#edit-banner .banner-btn:not(.save)');
+    var msg = document.getElementById('banner-msg');
+    var banner = document.getElementById('edit-banner');
+    if (editing) {
+      document.body.classList.add('edit-mode');
+      b.textContent = 'Turn off editing';
+      msg.textContent = 'Edit Mode is ON — click any text to edit it directly';
+      banner.style.background = 'var(--teal)';
+    } else {
+      document.body.classList.remove('edit-mode');
+      b.textContent = 'Turn on editing';
+      msg.textContent = 'Edit Mode is OFF — visitors see the page as it is now';
+      banner.style.background = '#555';
+    }
+  }
+
+  // Prevent Enter in single-line fields
+  document.querySelectorAll('.stat-num,.stat-label,.exp-role,.exp-company,.exp-date,.edu-degree,.edu-school,.edu-date,.section-title,.project-num,.project-result,.hero-eyebrow,.contact-detail-value').forEach(function(el){
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'){e.preventDefault();el.blur();} });
+  });
+
+  // PHOTO UPLOAD
+  function pickPhoto(inputId, frameId) { document.getElementById(inputId).click(); }
+  function loadPhoto(e, frameId) {
+    var f = e.target.files[0]; if(!f) return;
+    var r = new FileReader();
+    r.onload = function(ev) {
+      var frame = document.getElementById(frameId);
+      frame.querySelector('img').src = ev.target.result;
+      frame.classList.add('has-photo');
+    };
+    r.readAsDataURL(f);
+    e.target.value = '';
+  }
+
+  // PROJECT LINKS
+  function saveLink(n) {
+    var inp = document.getElementById('pli'+n);
+    var url = inp.value.trim();
+    if (!url) { showToast('Please paste a URL first'); return; }
+    if (!url.startsWith('http')) url = 'https://' + url;
+    var v = document.getElementById('plv'+n);
+    var s = document.getElementById('pls'+n);
+    var ed = document.getElementById('ple'+n);
+    v.href = url; v.style.display = 'inline-flex';
+    inp.style.display = 'none'; s.style.display = 'none'; ed.style.display = 'inline-block';
+    showToast('Link saved! Hover the project card to see it.');
+  }
+  function editLink(n) {
+    var inp = document.getElementById('pli'+n);
+    var v = document.getElementById('plv'+n);
+    var s = document.getElementById('pls'+n);
+    var ed = document.getElementById('ple'+n);
+    inp.value = v.href !== '#' ? v.href : '';
+    inp.style.display = 'block'; s.style.display = 'inline-block';
+    v.style.display = 'none'; ed.style.display = 'none';
+    inp.focus();
+  }
+
+  // SAVE FILE
+  function saveFile() {
+    var clone = document.documentElement.cloneNode(true);
+    clone.querySelectorAll('input[type="file"]').forEach(function(el){ el.remove(); });
+    // Save current link values into the cloned inputs won't work after removing them,
+    // but the visible href on visit links is preserved in the clone naturally.
+    var html = '<!DOCTYPE html>\n' + clone.outerHTML;
+    var blob = new Blob([html],{type:'text/html'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'index.html'; a.click();
+    showToast('Downloaded! Replace your GitHub file with this one to update your site.');
+  }
+
+  // TOAST
+  function showToast(msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg; t.classList.add('show');
+    setTimeout(function(){ t.classList.remove('show'); }, 3500);
+  }
+</script>
+</body>
+</html>
